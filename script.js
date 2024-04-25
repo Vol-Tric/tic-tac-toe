@@ -83,7 +83,7 @@ const checkWinner = () =>{
             }
             
         }
-        else if(count === 9){
+        else if(count === 8){
             showDraw();
         }
     }
