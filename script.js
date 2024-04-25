@@ -23,6 +23,7 @@ const winPatterns = [ [0,1,2] , [3,4,5] , [6,7,8] , [0,3,6] , [1,4,7] , [2,5,8] 
 // resets the whole game
 const resetGame = () =>{
     turnO = true;
+    count = 0;
     enableBoxes();
     msgContainer.classList.add("hide");
 };
@@ -47,6 +48,7 @@ const enableBoxes = () =>{
 
 // displays the winner
 const showWinner = (winner) =>{
+    count = 0;
     msg.innerText = `congratulation , winner is ${winner}`;
     msgContainer.classList.remove("hide");
     disableBoxes();
@@ -55,6 +57,7 @@ const showWinner = (winner) =>{
 
 // display if the match is drawed
 const showDraw = () =>{
+    count = 0;
     msg.innerText = `Draw , no player wins`;
     msgContainer.classList.remove("hide");
     disableBoxes();
@@ -80,11 +83,12 @@ const checkWinner = () =>{
             }
             
         }
+        else if(count === 9){
+            showDraw();
+        }
     }
 
-    if(count === 9){
-        showDraw();
-    }
+    
 }
 
 // this is to click each box
